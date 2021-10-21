@@ -4,6 +4,21 @@ Drools is a business rule management system with a forward-chaining and backward
 
 Be sure to check out the Drools' project [website](https://drools.org) and [documentation](https://drools.org/learn/documentation.html)!
 
+Deploying SAP Commerce Cloud patched version
+==========================
+This branch contains a patched version of Drools required by SAP Commerce.
+
+The following module have been patched :
+* [drools-core](./drools-core)
+* [drools-core-reflective](./drools-core-reflective)
+* [drools-compiler](./drools-compiler)
+ 
+In order to be able to deploy it to your Maven remote repository :
+* Deploy the Drools/jBMP BOMs using the patched Drools version for SAP Commerce : https://github.com/guiliguili/droolsjbpm-build-bootstrap/tree/feature/BIT-5925
+* Update the `distributionManagement` management sections to use your Maven remote repository in [pom.xml](./pom.xml)
+* Deploy the drools root module by running `mvn clean deploy -N`
+* Deploy each module above  by running `mvn clean deploy`
+
 Developing Drools and jBPM
 ==========================
 
